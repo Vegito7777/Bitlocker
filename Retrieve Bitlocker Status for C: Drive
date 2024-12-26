@@ -1,0 +1,7 @@
+# BitLocker Status
+$bitLockerStatus = Get-BitLockerVolume | Where-Object { $_.MountPoint -eq "C:" }
+if($bitLockerStatus.ProtectionStatus -eq "On") {
+   "BitLocker is ENABLED for C: drive."
+} else {
+   "WARNING: BitLocker is DISABLED or NOT ACTIVE for C: drive. :WARNING"
+}
