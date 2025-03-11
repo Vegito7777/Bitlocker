@@ -1,0 +1,14 @@
+Get-BitLockerVolume -MountPoint c:\
+
+Get-TPM
+Get-Tpm | Select TpmPresent, TpmEnabled, TpmActivated, RestartPending
+
+# Remove "#" as needed
+
+#If the TPM is not activated, then initialize it with the following command:
+
+# Initialize-Tpm -AllowClear -AllowPhysicalPresence
+
+#Enable BitLocker used space only
+
+Enable-Bitlocker -MountPoint c: -UsedSpaceOnly -SkipHardwareTest
